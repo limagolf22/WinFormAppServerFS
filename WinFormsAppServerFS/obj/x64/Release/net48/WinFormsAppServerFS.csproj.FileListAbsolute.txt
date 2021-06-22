@@ -1,0 +1,6 @@
+C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net48\WinFormsAppServerFS.csproj.AssemblyReference.cache
+C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net48\WinFormsAppServerFS.Form1.resources
+C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net48\WinFormsAppServerFS.csproj.GenerateResource.cache
+C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net48\WinFormsAppServerFS.AssemblyInfoInputs.cache
+C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net48\WinFormsAppServerFS.AssemblyInfo.cs
+C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net48\WinFormsAppServerFS.csproj.CoreCompileInputs.cache

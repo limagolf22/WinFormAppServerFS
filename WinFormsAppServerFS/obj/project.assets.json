@@ -1,0 +1,295 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7": {
+      "log4net/2.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net40-full/log4net.dll": {}
+        },
+        "runtime": {
+          "lib/net40-full/log4net.dll": {}
+        }
+      },
+      "SuperSocket/1.6.6.1": {
+        "type": "package",
+        "dependencies": {
+          "log4net": "2.0.3"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net45/SuperSocket.Common.dll": {},
+          "lib/net45/SuperSocket.Facility.dll": {},
+          "lib/net45/SuperSocket.SocketBase.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SuperSocket.Common.dll": {},
+          "lib/net45/SuperSocket.Facility.dll": {},
+          "lib/net45/SuperSocket.SocketBase.dll": {}
+        }
+      },
+      "SuperSocket.Engine/1.6.6.1": {
+        "type": "package",
+        "dependencies": {
+          "SuperSocket": "1.6.6.1",
+          "log4net": "2.0.3"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net45/SuperSocket.SocketEngine.dll": {},
+          "lib/net45/SuperSocket.SocketService.exe": {}
+        },
+        "runtime": {
+          "lib/net45/SuperSocket.SocketEngine.dll": {},
+          "lib/net45/SuperSocket.SocketService.exe": {}
+        }
+      },
+      "SuperSocket.WebSocket/1.6.6.1": {
+        "type": "package",
+        "dependencies": {
+          "SuperSocket": "1.6.6.1",
+          "log4net": "2.0.3"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net45/SuperSocket.WebSocket.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SuperSocket.WebSocket.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7/win7-x64": {
+      "log4net/2.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net40-full/log4net.dll": {}
+        },
+        "runtime": {
+          "lib/net40-full/log4net.dll": {}
+        }
+      },
+      "SuperSocket/1.6.6.1": {
+        "type": "package",
+        "dependencies": {
+          "log4net": "2.0.3"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net45/SuperSocket.Common.dll": {},
+          "lib/net45/SuperSocket.Facility.dll": {},
+          "lib/net45/SuperSocket.SocketBase.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SuperSocket.Common.dll": {},
+          "lib/net45/SuperSocket.Facility.dll": {},
+          "lib/net45/SuperSocket.SocketBase.dll": {}
+        }
+      },
+      "SuperSocket.Engine/1.6.6.1": {
+        "type": "package",
+        "dependencies": {
+          "SuperSocket": "1.6.6.1",
+          "log4net": "2.0.3"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net45/SuperSocket.SocketEngine.dll": {},
+          "lib/net45/SuperSocket.SocketService.exe": {}
+        },
+        "runtime": {
+          "lib/net45/SuperSocket.SocketEngine.dll": {},
+          "lib/net45/SuperSocket.SocketService.exe": {}
+        }
+      },
+      "SuperSocket.WebSocket/1.6.6.1": {
+        "type": "package",
+        "dependencies": {
+          "SuperSocket": "1.6.6.1",
+          "log4net": "2.0.3"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net45/SuperSocket.WebSocket.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SuperSocket.WebSocket.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "log4net/2.0.3": {
+      "sha512": "rxMHzK5efGPo5XtRnuUGO4tfW5l74Aji6kVmtMAt2SgcB5PHBNtNY7yj2LCI2VtKrLPO7kCKR6kH6lIZggq3Gg==",
+      "type": "package",
+      "path": "log4net/2.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net10-full/log4net.dll",
+        "lib/net10-full/log4net.xml",
+        "lib/net11-full/log4net.dll",
+        "lib/net11-full/log4net.xml",
+        "lib/net20-full/log4net.dll",
+        "lib/net20-full/log4net.xml",
+        "lib/net35-client/log4net.dll",
+        "lib/net35-client/log4net.xml",
+        "lib/net35-full/log4net.dll",
+        "lib/net35-full/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40-full/log4net.dll",
+        "lib/net40-full/log4net.xml",
+        "log4net.2.0.3.nupkg.sha512",
+        "log4net.nuspec"
+      ]
+    },
+    "SuperSocket/1.6.6.1": {
+      "sha512": "mowf1siOQwqxQH+FE+UO9b29GjHEtT/p5rxTHvcgfaIdwcRqMUAzEJELBA/M8wDn/BIE/XMojeyNaoqfGECX8A==",
+      "type": "package",
+      "path": "supersocket/1.6.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/SuperSocket.Common.XML",
+        "lib/net35/SuperSocket.Common.dll",
+        "lib/net35/SuperSocket.Facility.XML",
+        "lib/net35/SuperSocket.Facility.dll",
+        "lib/net35/SuperSocket.SocketBase.XML",
+        "lib/net35/SuperSocket.SocketBase.dll",
+        "lib/net40/SuperSocket.Common.XML",
+        "lib/net40/SuperSocket.Common.dll",
+        "lib/net40/SuperSocket.Facility.XML",
+        "lib/net40/SuperSocket.Facility.dll",
+        "lib/net40/SuperSocket.SocketBase.XML",
+        "lib/net40/SuperSocket.SocketBase.dll",
+        "lib/net45/SuperSocket.Common.XML",
+        "lib/net45/SuperSocket.Common.dll",
+        "lib/net45/SuperSocket.Facility.XML",
+        "lib/net45/SuperSocket.Facility.dll",
+        "lib/net45/SuperSocket.SocketBase.XML",
+        "lib/net45/SuperSocket.SocketBase.dll",
+        "supersocket.1.6.6.1.nupkg.sha512",
+        "supersocket.nuspec"
+      ]
+    },
+    "SuperSocket.Engine/1.6.6.1": {
+      "sha512": "mcbkv+EjgPJ015DohsVdomGrENSUT3e6WHzizo+AGY8Z5XSWYbPC03jJY5AmnZrvqDE9BE/WKl/W5advfPO91g==",
+      "type": "package",
+      "path": "supersocket.engine/1.6.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Config/log4net.config",
+        "content/Config/log4net.unix.config",
+        "content/supersocket.cmd",
+        "content/supersocket.sh",
+        "lib/net35/SuperSocket.SocketEngine.XML",
+        "lib/net35/SuperSocket.SocketEngine.dll",
+        "lib/net35/SuperSocket.SocketService.exe",
+        "lib/net40/SuperSocket.SocketEngine.XML",
+        "lib/net40/SuperSocket.SocketEngine.dll",
+        "lib/net40/SuperSocket.SocketService.exe",
+        "lib/net45/SuperSocket.SocketEngine.XML",
+        "lib/net45/SuperSocket.SocketEngine.dll",
+        "lib/net45/SuperSocket.SocketService.exe",
+        "supersocket.engine.1.6.6.1.nupkg.sha512",
+        "supersocket.engine.nuspec"
+      ]
+    },
+    "SuperSocket.WebSocket/1.6.6.1": {
+      "sha512": "gEHL/NH67cnnzXG1S8+WTdDL/zXhtBh08NVRp8OelpmP9R8S5KxsfX4tf2/Cyotn4Hq9y+9iyG4gau0jFz4ToA==",
+      "type": "package",
+      "path": "supersocket.websocket/1.6.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/SuperSocket.WebSocket.dll",
+        "lib/net40/SuperSocket.WebSocket.dll",
+        "lib/net45/SuperSocket.WebSocket.dll",
+        "supersocket.websocket.1.6.6.1.nupkg.sha512",
+        "supersocket.websocket.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7": [
+      "SuperSocket.Engine >= 1.6.6.1",
+      "SuperSocket.WebSocket >= 1.6.6.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\FS\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\FS\\source\\repos\\WinFormsAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj",
+      "projectName": "WinFormsAppServerFS",
+      "projectPath": "C:\\Users\\FS\\source\\repos\\WinFormsAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj",
+      "packagesPath": "C:\\Users\\FS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\FS\\source\\repos\\WinFormsAppServerFS\\WinFormsAppServerFS\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\FS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net47"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net47": {
+          "targetAlias": "net47",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net47": {
+        "targetAlias": "net47",
+        "dependencies": {
+          "SuperSocket.Engine": {
+            "target": "Package",
+            "version": "[1.6.6.1, )"
+          },
+          "SuperSocket.WebSocket": {
+            "target": "Package",
+            "version": "[1.6.6.1, )"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "win7-x64": {
+        "#import": []
+      }
+    }
+  }
+}

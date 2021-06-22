@@ -1,0 +1,73 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "log4net/2.0.3": {
+        "runtime": {
+          "lib/net40-full/log4net.dll": {
+            "assemblyVersion": "1.2.13.0",
+            "fileVersion": "1.2.13.0"
+          }
+        }
+      },
+      "SuperSocket/1.6.6.1": {
+        "dependencies": {
+          "log4net": "2.0.3"
+        },
+        "runtime": {
+          "lib/net45/SuperSocket.Common.dll": {
+            "assemblyVersion": "1.6.6.1",
+            "fileVersion": "1.6.6.1"
+          },
+          "lib/net45/SuperSocket.Facility.dll": {
+            "assemblyVersion": "1.6.6.1",
+            "fileVersion": "1.6.6.1"
+          },
+          "lib/net45/SuperSocket.SocketBase.dll": {
+            "assemblyVersion": "1.6.6.1",
+            "fileVersion": "1.6.6.1"
+          }
+        }
+      },
+      "SuperSocket.WebSocket/1.6.6.1": {
+        "dependencies": {
+          "SuperSocket": "1.6.6.1",
+          "log4net": "2.0.3"
+        },
+        "runtime": {
+          "lib/net45/SuperSocket.WebSocket.dll": {
+            "assemblyVersion": "1.6.6.1",
+            "fileVersion": "1.6.6.1"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "log4net/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rxMHzK5efGPo5XtRnuUGO4tfW5l74Aji6kVmtMAt2SgcB5PHBNtNY7yj2LCI2VtKrLPO7kCKR6kH6lIZggq3Gg==",
+      "path": "log4net/2.0.3",
+      "hashPath": "log4net.2.0.3.nupkg.sha512"
+    },
+    "SuperSocket/1.6.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mowf1siOQwqxQH+FE+UO9b29GjHEtT/p5rxTHvcgfaIdwcRqMUAzEJELBA/M8wDn/BIE/XMojeyNaoqfGECX8A==",
+      "path": "supersocket/1.6.6.1",
+      "hashPath": "supersocket.1.6.6.1.nupkg.sha512"
+    },
+    "SuperSocket.WebSocket/1.6.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gEHL/NH67cnnzXG1S8+WTdDL/zXhtBh08NVRp8OelpmP9R8S5KxsfX4tf2/Cyotn4Hq9y+9iyG4gau0jFz4ToA==",
+      "path": "supersocket.websocket/1.6.6.1",
+      "hashPath": "supersocket.websocket.1.6.6.1.nupkg.sha512"
+    }
+  }
+}
