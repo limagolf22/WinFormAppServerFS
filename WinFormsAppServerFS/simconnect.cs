@@ -43,18 +43,28 @@ namespace WinFormsAppServerFS
             simconnect.AddToDataDefinition(DEFINITIONS.Def_POS, "Plane Heading Degrees magnetic", "degrees", SIMCONNECT_DATATYPE.FLOAT32, 0.0f, SimConnect.SIMCONNECT_UNUSED);
             simconnect.AddToDataDefinition(DEFINITIONS.Def_POS, "Airspeed Indicated", "knots", SIMCONNECT_DATATYPE.FLOAT32, 0.0f, SimConnect.SIMCONNECT_UNUSED);
 
+            simconnect.AddToDataDefinition(DEFINITIONS.Def_CONTROLS, "Rudder Position", "Position", SIMCONNECT_DATATYPE.FLOAT32, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+
+            simconnect.AddToDataDefinition(DEFINITIONS.Def_TURN, "Incidence Beta", "degrees", SIMCONNECT_DATATYPE.FLOAT32, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+
+
 
             System.Diagnostics.Debug.WriteLine("data added");
 
             simconnect.RegisterDataDefineStruct<RPOS_struct>(DEFINITIONS.Def_RPOS);
             simconnect.RegisterDataDefineStruct<RREF_struct>(DEFINITIONS.Def_RREF);
             simconnect.RegisterDataDefineStruct<POS_struct>(DEFINITIONS.Def_POS);
+            simconnect.RegisterDataDefineStruct<CONTROLS_struct>(DEFINITIONS.Def_CONTROLS);
+            simconnect.RegisterDataDefineStruct<TURN_struct>(DEFINITIONS.Def_TURN);
 
 
             simconnect.OnRecvSimobjectData += new SimConnect.RecvSimobjectDataEventHandler(simconnect_OnRecvSimobjectData);
 
             simconnect.RequestDataOnSimObject(REQUESTS.REQ_RPOS, DEFINITIONS.Def_RPOS, SimConnect.SIMCONNECT_OBJECT_ID_USER, SIMCONNECT_PERIOD.VISUAL_FRAME, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT,0,0,0);
             simconnect.RequestDataOnSimObject(REQUESTS.REQ_RREF, DEFINITIONS.Def_RREF, SimConnect.SIMCONNECT_OBJECT_ID_USER, SIMCONNECT_PERIOD.VISUAL_FRAME, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
+            simconnect.RequestDataOnSimObject(REQUESTS.REQ_CONTROLS, DEFINITIONS.Def_CONTROLS, SimConnect.SIMCONNECT_OBJECT_ID_USER, SIMCONNECT_PERIOD.VISUAL_FRAME, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
+            simconnect.RequestDataOnSimObject(REQUESTS.REQ_TURN, DEFINITIONS.Def_TURN, SimConnect.SIMCONNECT_OBJECT_ID_USER, SIMCONNECT_PERIOD.VISUAL_FRAME, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
+
 
             System.Diagnostics.Debug.WriteLine("request done");
 
@@ -64,12 +74,15 @@ namespace WinFormsAppServerFS
 
         private void simconnect_OnRecvQuit(SimConnect sender, SIMCONNECT_RECV data)
         {
-            System.Diagnostics.Debug.WriteLine("quitting");
+            System.Diagnostics.Debug.WriteLine("quitting simco");
+            pictureBoxSimCo.Image = global::WinFormsAppServerFS.Properties.Resources.redDot;
         }
 
         private void simconnect_OnRecvOpen(SimConnect sender, SIMCONNECT_RECV_OPEN data)
         {
-            System.Diagnostics.Debug.WriteLine("opening");
+            System.Diagnostics.Debug.WriteLine("opening simco");
+            pictureBoxSimCo.Image = global::WinFormsAppServerFS.Properties.Resources.greenDot;
+
         }
 
         private void simconnect_OnRecvException(SimConnect sender, SIMCONNECT_RECV_EXCEPTION data)
@@ -85,14 +98,36 @@ namespace WinFormsAppServerFS
             {
                 case REQUESTS.REQ_RPOS:
                     RPOS_struct provi = (RPOS_struct)data.dwData[0];
-                    RPOS_STR = "0;" + Math.Round(provi.heading,1) + ";" + Math.Round(provi.altitude,1) + ";" + Math.Round(provi.radioHeight,1) + ";" + Math.Round(provi.bank,1);
+                    RPOS_STR = "0;" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi.heading) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi.altitude) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi.radioHeight) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi.bank);
                     RPOSField.Text = RPOS_STR;
                     break;
 
                 case REQUESTS.REQ_RREF:
                     RREF_struct provi2 = (RREF_struct)data.dwData[0];
-                    RREF_STR = "1;" + Math.Round(provi2.speed,1) + ";" + Math.Round(provi2.rpm,1);
+                    RREF_STR = "1;" + String.Format(CultureInfo.InvariantCulture, "{0:F1}",provi2.speed) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi2.rpm);
                     RREFField.Text = RREF_STR;
+                    break;
+                case REQUESTS.REQ_CONTROLS:
+                    CONTROLS_struct provi3 = (CONTROLS_struct)data.dwData[0];
+                    rudder_val = provi3.rudder;
+                    try
+                    {
+                        fc.SetRudderValue(rudder_val);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                    break;
+                case REQUESTS.REQ_TURN:
+                    TURN_struct provi4 = (TURN_struct)data.dwData[0];
+                    sideslip_val = provi4.sideslip;
+                    try
+                    {
+                        fc.SetSideSlipValue(sideslip_val);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
                     break;
                 default:
                     System.Diagnostics.Debug.WriteLine("message non reconnu");

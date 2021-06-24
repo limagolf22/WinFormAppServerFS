@@ -14,17 +14,23 @@ namespace WinFormsAppServerFS
     {
         Def_RPOS,
         Def_RREF,
-        Def_POS
-
+        Def_POS,
+        Def_CONTROLS,
+        Def_TURN
     }
 
     public enum REQUESTS
     {
         REQ_RPOS,
-        REQ_RREF
+        REQ_RREF,
+        REQ_CONTROLS,
+        REQ_TURN
     }
 
-
+    public enum EVENTS
+    {
+        TXT_EVENT
+    }
     public struct RPOS_struct
     {
         public float heading;
@@ -49,5 +55,12 @@ namespace WinFormsAppServerFS
         public float heading;
         public float speed;
     };
-
+    public struct CONTROLS_struct
+    {
+        public float rudder;
+    };
+    public struct TURN_struct
+    {
+        public float sideslip;
+    };
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Shapes;
 using System.Timers;
 using SuperSocket.WebSocket;
 
@@ -18,6 +19,8 @@ namespace WinFormsAppServerFS
 {
     public partial class Form1 : Form
     {
+        private static FormControls fc;
+
         private static WebSocketServer WS;
         private static List<WebSocketSession> client_list;
         private static int list_nbr;
@@ -28,6 +31,8 @@ namespace WinFormsAppServerFS
         private static System.Timers.Timer WStimer;
 
         private static string RPOS_STR="",RREF_STR="";
+        private static float rudder_val = 0.0f;
+        private static float sideslip_val = 0.0f;
 
         public SimConnect simconnect = null; 
 
@@ -40,7 +45,6 @@ namespace WinFormsAppServerFS
             list_nbr = 0;
 
             initSimEvents();
-
             SetTimer();
 
             trackBarfrequency.ValueChanged += new System.EventHandler(OnTrackValueChanged);
@@ -81,6 +85,7 @@ namespace WinFormsAppServerFS
             {
                 client.Send(RPOS_STR);
                 client.Send(RREF_STR);
+               
             }
         }
 
@@ -120,6 +125,19 @@ namespace WinFormsAppServerFS
         private void ConnectButton_Click(object sender, EventArgs e)
         {
             WStimer.Stop();
+            try
+            {
+                WS.Stop();
+                WS.Dispose();
+                WS.NewSessionConnected -= WS_NewSessionConnected;
+                WS.NewMessageReceived -= WS_NewMessageReceived;
+                WS.NewDataReceived -= WS_NewDataReceived;
+                WS.SessionClosed -= WS_SessionClosed;
+            }
+            catch(Exception excp)
+            {
+
+            }
             
             System.Diagnostics.Debug.WriteLine("WS (re)connection");
             WStimer.Interval = 1 / (float)(trackBarfrequency.Value) * 1000;
@@ -140,7 +158,15 @@ namespace WinFormsAppServerFS
 
         private void OnTrackValueChanged(object sender, System.EventArgs e)
         {
-            TrackValueLabel.Text = trackBarfrequency.Value.ToString();
+            TrackValueLabel.Text = trackBarfrequency.Value.ToString()+" Hz";
+        }
+
+        private void buttonOpenControlForm_Click(object sender, EventArgs e)
+        {
+            simconnect.Text(SIMCONNECT_TEXT_TYPE.PRINT_BLACK, 5.0f, EVENTS.TXT_EVENT, "Controllers visuals are at the top left of the screen");
+            fc = new FormControls();
+            fc.TopMost = true;
+            fc.Show();
         }
 
         private void sendT_Click(object sender, EventArgs e)

@@ -19,3 +19,4 @@ C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release
 C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net47\WinFormsAppServerFS.exe
 C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net47\WinFormsAppServerFS.pdb
 C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net47\WinFormsAppServerFS.Properties.Resources.resources
+C:\Users\FS\source\repos\WinFormsAppServerFS\WinFormsAppServerFS\obj\x64\Release\net47\WinFormsAppServerFS.FormControls.resources
