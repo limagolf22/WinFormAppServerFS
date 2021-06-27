@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "MABMhZ5+0QKYm281/XN7ZFouU1iHvPCrFyEjYCh+JkVa6tEtdRLpLTRF//T4TqhaV+K0d8HlFqy1yWoMUxiP5Q==",
+  "dgSpecHash": "zCn1LHbfEUG1Vx7zDIlXkpAICZIEuvCqrunr9gEhhxchx3SNYWnskQcsyezkWWEq6UPlxMQ7mQ7Gs2ZhRbeu0g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\FS\\source\\repos\\WinFormsAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj",
+  "projectFilePath": "C:\\Users\\liam\\Desktop\\WinFormAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\FS\\.nuget\\packages\\log4net\\2.0.3\\log4net.2.0.3.nupkg.sha512",
-    "C:\\Users\\FS\\.nuget\\packages\\supersocket\\1.6.6.1\\supersocket.1.6.6.1.nupkg.sha512",
-    "C:\\Users\\FS\\.nuget\\packages\\supersocket.engine\\1.6.6.1\\supersocket.engine.1.6.6.1.nupkg.sha512",
-    "C:\\Users\\FS\\.nuget\\packages\\supersocket.websocket\\1.6.6.1\\supersocket.websocket.1.6.6.1.nupkg.sha512"
+    "C:\\Users\\liam\\.nuget\\packages\\log4net\\2.0.3\\log4net.2.0.3.nupkg.sha512",
+    "C:\\Users\\liam\\.nuget\\packages\\supersocket\\1.6.6.1\\supersocket.1.6.6.1.nupkg.sha512",
+    "C:\\Users\\liam\\.nuget\\packages\\supersocket.engine\\1.6.6.1\\supersocket.engine.1.6.6.1.nupkg.sha512",
+    "C:\\Users\\liam\\.nuget\\packages\\supersocket.websocket\\1.6.6.1\\supersocket.websocket.1.6.6.1.nupkg.sha512"
   ],
   "logs": []
 }

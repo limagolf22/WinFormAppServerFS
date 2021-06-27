@@ -2,25 +2,43 @@
 using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Timers;
 
 namespace WinFormsAppServerFS
 {
     partial class Form1
     {
-         private void initSimEvents()
+        private static System.Timers.Timer Simcotimer;
+        private static int q = 0;
+
+        private void initSimEvents()
          {
             const int WM_USER_SIMCONNECT = 0x402;
             try
             {
                 simconnect = new SimConnect("Managed Data Request", this.Handle, WM_USER_SIMCONNECT, null, 0);
-                System.Diagnostics.Debug.WriteLine("Connected To Microsoft Flight Simulator 2020!");
 
             }
             catch (COMException exception1)
             {
                 System.Diagnostics.Debug.WriteLine(exception1);
-                return;
+                
             }
+
+            if (simconnect == null)
+            {
+                Simcotimer = new System.Timers.Timer(freqWS);
+                // Hook up the Elapsed event for the timer. 
+                Simcotimer.Elapsed += OnSimcoTimedEvent;
+                Simcotimer.AutoReset = true;
+                Simcotimer.Enabled = true;
+                Simcotimer.Start();
+                System.Diagnostics.Debug.WriteLine("Connection to Flight Simulator failed, passing to values default values");
+                return;
+
+            }
+            System.Diagnostics.Debug.WriteLine("Connected To Microsoft Flight Simulator 2020!");
+
             simconnect.OnRecvOpen += new SimConnect.RecvOpenEventHandler(simconnect_OnRecvOpen);
             simconnect.OnRecvQuit += new SimConnect.RecvQuitEventHandler(simconnect_OnRecvQuit);
             simconnect.OnRecvException += new SimConnect.RecvExceptionEventHandler(simconnect_OnRecvException);
@@ -71,6 +89,22 @@ namespace WinFormsAppServerFS
        //     simconnect.RequestDataOnSimObjectType(REQUESTS.REQ_RPOS, DEFINITIONS.Def_RPOS, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
           
          }
+
+        private void OnSimcoTimedEvent(object sender, ElapsedEventArgs e)
+        {
+            RPOS_struct provi;
+            RREF_struct provi2;
+            provi.heading = q * 8 + 0.01f;
+            provi.altitude = 2700 + q + 0.01f;
+            provi.radioHeight = 2480 + q + 0.01f;
+            provi.bank = q - 20 + 0.01f;
+
+            provi2.speed = 95 + (q - 20) / 2 + 0.01f;
+            provi2.rpm = 2300 + (q - 20) * 10 + 0.01f;
+            RPOS_STR = "0;" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi.heading) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi.altitude) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi.radioHeight) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi.bank);
+            RREF_STR = "1;" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi2.speed) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F1}", provi2.rpm);
+            q = (q + 1) % 41;
+        }
 
         private void simconnect_OnRecvQuit(SimConnect sender, SIMCONNECT_RECV data)
         {
