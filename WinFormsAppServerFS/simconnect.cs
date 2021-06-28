@@ -82,6 +82,7 @@ namespace WinFormsAppServerFS
             simconnect.RequestDataOnSimObject(REQUESTS.REQ_RREF, DEFINITIONS.Def_RREF, SimConnect.SIMCONNECT_OBJECT_ID_USER, SIMCONNECT_PERIOD.VISUAL_FRAME, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
             simconnect.RequestDataOnSimObject(REQUESTS.REQ_CONTROLS, DEFINITIONS.Def_CONTROLS, SimConnect.SIMCONNECT_OBJECT_ID_USER, SIMCONNECT_PERIOD.VISUAL_FRAME, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
             simconnect.RequestDataOnSimObject(REQUESTS.REQ_TURN, DEFINITIONS.Def_TURN, SimConnect.SIMCONNECT_OBJECT_ID_USER, SIMCONNECT_PERIOD.VISUAL_FRAME, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
+            simconnect.RequestDataOnSimObject(REQUESTS.REQ_POS, DEFINITIONS.Def_POS, SimConnect.SIMCONNECT_OBJECT_ID_USER, SIMCONNECT_PERIOD.VISUAL_FRAME, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
 
 
             System.Diagnostics.Debug.WriteLine("request done");
@@ -162,6 +163,11 @@ namespace WinFormsAppServerFS
                     catch (Exception ex)
                     {
                     }
+                    break;
+                case REQUESTS.REQ_POS:
+                    POS_struct provi5 = (POS_struct)data.dwData[0];
+                    POS_STR = "3;" + String.Format(CultureInfo.InvariantCulture, "{0:F6}", provi5.latitude) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F6}", provi5.longitude) + ";" + String.Format(CultureInfo.InvariantCulture, "{0:F3}", provi5.heading);
+                    RREFField.Text = RREF_STR;
                     break;
                 default:
                     System.Diagnostics.Debug.WriteLine("message non reconnu");

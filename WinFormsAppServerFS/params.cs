@@ -24,7 +24,8 @@ namespace WinFormsAppServerFS
         REQ_RPOS,
         REQ_RREF,
         REQ_CONTROLS,
-        REQ_TURN
+        REQ_TURN,
+        REQ_POS
     }
 
     public enum EVENTS

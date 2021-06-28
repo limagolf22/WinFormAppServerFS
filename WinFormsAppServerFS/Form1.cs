@@ -30,7 +30,7 @@ namespace WinFormsAppServerFS
         
         private static System.Timers.Timer WStimer;
 
-        private static string RPOS_STR="",RREF_STR="";
+        private static string RPOS_STR="",RREF_STR="",POS_STR="";
         private static float rudder_val = 0.0f;
         private static float sideslip_val = 0.0f;
 
@@ -85,7 +85,7 @@ namespace WinFormsAppServerFS
             {
                 client.Send(RPOS_STR);
                 client.Send(RREF_STR);
-               
+                client.Send(POS_STR);
             }
         }
 

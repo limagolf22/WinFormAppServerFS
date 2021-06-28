@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\liam\\Desktop\\WinFormAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj": {}
+    "C:\\Users\\FS\\source\\repos\\WinFormsAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\liam\\Desktop\\WinFormAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj": {
+    "C:\\Users\\FS\\source\\repos\\WinFormsAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\liam\\Desktop\\WinFormAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj",
+        "projectUniqueName": "C:\\Users\\FS\\source\\repos\\WinFormsAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj",
         "projectName": "WinFormsAppServerFS",
-        "projectPath": "C:\\Users\\liam\\Desktop\\WinFormAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj",
-        "packagesPath": "C:\\Users\\liam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\liam\\Desktop\\WinFormAppServerFS\\WinFormsAppServerFS\\obj\\",
+        "projectPath": "C:\\Users\\FS\\source\\repos\\WinFormsAppServerFS\\WinFormsAppServerFS\\WinFormsAppServerFS.csproj",
+        "packagesPath": "C:\\Users\\FS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FS\\source\\repos\\WinFormsAppServerFS\\WinFormsAppServerFS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\liam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
