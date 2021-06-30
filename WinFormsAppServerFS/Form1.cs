@@ -26,7 +26,7 @@ namespace WinFormsAppServerFS
         private static int list_nbr;
 
         private static int nport=9002;
-        private static int freqWS = 500;
+        private static int freqWS = 2;
         
         private static System.Timers.Timer WStimer;
 
@@ -72,7 +72,7 @@ namespace WinFormsAppServerFS
         private static void SetTimer()
         {
             // Create a timer with a two freqWS interval.
-            WStimer = new System.Timers.Timer(freqWS);
+            WStimer = new System.Timers.Timer(1 / (double)(freqWS) * 1000);
             // Hook up the Elapsed event for the timer. 
             WStimer.Elapsed += OnTimedEvent;
             WStimer.AutoReset = true;
@@ -115,6 +115,8 @@ namespace WinFormsAppServerFS
         {
             client_list.Add(session);
             list_nbr++;
+            session.Send("2;"+ freqWS);
+
             ConnectionWSLabel.Invoke(new Action(() =>
             {
                 ConnectionWSLabel.Text = "( " + list_nbr + " connected)";
@@ -159,6 +161,7 @@ namespace WinFormsAppServerFS
         private void OnTrackValueChanged(object sender, System.EventArgs e)
         {
             TrackValueLabel.Text = trackBarfrequency.Value.ToString()+" Hz";
+            freqWS = trackBarfrequency.Value;
         }
 
         private void buttonOpenControlForm_Click(object sender, EventArgs e)
